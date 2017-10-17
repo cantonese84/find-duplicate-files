@@ -115,10 +115,12 @@
             };
 
             var createMissingMd5 = function createMissingMd5(files, md5List) {
+                var t = Date.now();
+                
                 for (var i = 0; i < files.length; i++) {
                     // Logging:
                     if (!opt.silent && !opt.silent && i > 0 && i % 1000 === 0) {
-                        var dt = (Date.now() - t2);
+                        var dt = (Date.now() - t);
                         var eta = Math.max(0, (dt * files.length / i - dt) / 1000).toFixed(0);
                         log.info('fdf', '%s %% (%d files) in %d millis (ETA: %s secs).', (100 * i / files.length).toFixed(1), i, dt, eta);
                     }
