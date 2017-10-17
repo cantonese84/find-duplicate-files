@@ -106,7 +106,7 @@
             var removeOutdatedMd5Entries = function removeOutdatedMd5Entries(files, md5List) {
                 // remove outdated entries from md5List:
                 if (md5List.length) {
-                    for (var i = 0; i < md5List.length; i++) {
+                    for (var i = md5List.length-1; i >= 0; i++) {
                         if (files.indexOf(md5List[i].path) === -1) {
                             md5List.splice(i, 1); // remove item from md5List
                         }
