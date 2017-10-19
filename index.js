@@ -116,7 +116,7 @@
 
             var createMissingMd5 = function createMissingMd5(files, md5List) {
                 var t = Date.now();
-                
+
                 for (var i = 0; i < files.length; i++) {
                     // Logging:
                     if (!opt.silent && !opt.silent && i > 0 && i % 1000 === 0) {
@@ -129,7 +129,7 @@
                         if (!md5List.length || !containsFileItemByPath(md5List, p)) {
                             var item = {path: p};
                             try {
-                                item.md5 = md5File(p);
+                                item.md5 = md5File.sync(p);
                                 md5List.push(item);
                             } catch (e) {
                                 log.error('fdf', '%d) %s (%s)', i, p, e.message);
