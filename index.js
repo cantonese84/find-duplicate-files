@@ -96,10 +96,9 @@
 
             var saveMd5File = function saveMd5File(md5List) {
                 if (!opt.md5SkipSaving) {
-                    fs.writeFile(opt.md5File, JSON.stringify(md5List) /*, null, 2)*/, function (err) {
-                        if (err) return console.error(err);
-                        if (!opt.silent) log.info('fdf', 'JSON (md5) saved at : %s', opt.md5File);
-                    });
+                    fs.writeFileSync(opt.md5File, JSON.stringify(md5List));
+
+                    if (!opt.silent) log.info('fdf', 'JSON (md5) saved at : %s', opt.md5File);
                 }
             };
 
